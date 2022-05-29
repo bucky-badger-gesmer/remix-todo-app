@@ -7,6 +7,10 @@ export const loader: LoaderFunction = async () => {
   return data;
 };
 
+interface TodoItem {
+  id: number;
+  item: string;
+}
 
 const Index = () => {
   const data = useLoaderData();
@@ -15,7 +19,7 @@ const Index = () => {
     <div>
       <h1>Hello world</h1>
       <ul>
-        {data.map(o => <li>{o.item}</li>)}
+        {data.map((o: TodoItem) => <li key={o.id}>{o.item}</li>)}
       </ul>
     </div>
   );
